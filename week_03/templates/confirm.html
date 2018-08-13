@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Confirm Order - 212 Burgers{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+      body {
+        background-color: #DFE;
+      }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div id="header">
+      <h1>Confirm</h1>
+      <p>ORDER CONFIRMATION</p>
+    </div>
+
+    {% for d in details %}
+      <p>
+        <b>{{d}}</b>
+        <em>{{ details[d] }}</em>
+      </p>
+    {% endfor %}
+
+
+    {% for i in items %}
+      <p>
+        <b>{{i}}</b>
+        <em>{{ items[i] }}</em>
+      </p>
+    {% endfor %}
+      <a href="/">Home page<a>
+    </p>
+{% endblock %}
