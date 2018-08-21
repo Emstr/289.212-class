@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
+    </head>
+    <body>
+        <div class="navbar">Events</div>
+        
+      <div class="section">
+        <div class="container">
+          <a href="{{ url_for('addEvent') }}">
+          <div class="add-event">
+            +
+          </div>
+          </a>
+            
+            {% for event in events|sort(attribute=10, reverse=True) %}
+            <div class="event-container">
+            <div class="event-listing">
+              <div class="image-container">
+                <img src="{{ url_for('static', filename='uploads') }}/{{ event[9] }}">
+              </div>
+              <div class="text-container">
+                <p class="date">{{ event[1] }}</p>
+                <h1 class="title">{{ event[0] }}</h1>
+                <h3 class="name">Hosted by {{ event[5] }} {{ event[6] }}</h2>
+                <p class="address">{{ event[2] }}</p>
+                <div class="time-container">
+                  <p class="time">{{ event[3] }}-{{ event[4] }}</p>
+                </div>
+                <p class="description">{{ event[8] }}</p><br>
+                <p class="description">{{ event[7] }} spots left</p>
+                <form method="post" action="/RSVP" enctype="multipart/form-data">
+                    <input type="hidden" name="attend" value="{{event[10]}}">
+                    <input type="submit" value="I'm going">
+                </form>
+              </div>
+            </div>
+          </div>
+            {% endfor %}
+        </div>
+      </div>
+    </body>
+</html>
