@@ -26,7 +26,7 @@
       
     $(document).ready(function(){
         $('input.timepicker').timepicker({
-            dropdown: false,
+            dropdown: false;
         });
     });
   </script>
@@ -54,7 +54,8 @@
         
 
         <form method="post" action="/action" enctype="multipart/form-data">
-          <input type="text" name="title" required placeholder="Event Title"><br>
+          Event title:<br>
+          <input type="text" name="title" required><br>
           Date:<br>
           <input type="text" name="date" required id="datepicker"><br>
           Location:<br>
@@ -75,7 +76,7 @@
           <input type="file" name="image" required>
 
           <p>
-            <input type="submit" value="Post" class="btn-yellow">
+            <input type="submit" value="Post">
           </p>
           
     </div>
