@@ -1,5 +1,5 @@
 body {
-    background-color: #B7E0F3;
+    background-color: #41A1F9;
     margin: 0px;
     font-family: helvetica;
 }
@@ -22,7 +22,7 @@ svg {
 .display_container {
     background-color: #FFF;
     opacity: 0.95;
-    height: 20vh;
+    height: 22vh;
     border-radius: 10px 10px 0px 0px;
     position: fixed;
     bottom: 0px;
@@ -30,11 +30,15 @@ svg {
     right: 0px;
     z-index: 10;
     padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    min-height: 140px;
 }
 
 .display_container h1 {
     margin-top: 4px;
     font-size: 20px;
+    max-width: 80%;
 }
 
 .results-panel {
