@@ -1,0 +1,51 @@
+<html>
+    <body>
+        <input type="text">
+        <button id="grade">grade</button>
+        <div id="result"></div>
+    
+        <script>
+            
+            
+        
+            document.getElementById('grade').addEventListener('click', function() {
+                i = document.querySelectorAll('input')[0].value;
+                
+                if (i<0 || i>100) {
+                    document.getElementById('result').innerHTML = "ERROR";
+                } else if (i < 50){
+                    document.getElementById('result').innerHTML = "fail";
+                } else if (i>=70) {
+                    document.getElementById('result').innerHTML = "A";
+                } else if (i>=60) {
+                    document.getElementById('result').innerHTML = "B";
+                } else if (i>=50) {
+                    document.getElementById('result').innerHTML = "C";
+                } 
+                
+            })
+            
+            
+//            age = 0;
+//            console.log('When Timmy was ' + age);
+//            age+= 1
+//            console.log('When Timmy was ' + age);
+//            age+= 1
+//            console.log('When Timmy was ' + age);
+        
+            for (age=0; age<=100; age+=1) {
+                if (age==0) {
+                console.log('When Timmy was born');
+            } else {
+                console.log('When Timmy was ' + age);
+            }
+        
+            }
+        </script>
+    
+    
+    
+    </body>
+
+
+</html>

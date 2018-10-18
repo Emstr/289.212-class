@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html>
+    
+<head>
+    <title>Add an event</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='add-event.css') }}" type="text/css">
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    
+    <link rel="stylesheet" href="../static/jquery.timepicker.min.css">
+    
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="../static/jquery.timepicker.min.js"></script>
+  <script>
+      $( function() {
+        $( "#datepicker" ).datepicker();
+        $( ".selector" ).datepicker( "option", "dateFormat", "d, MM, y" );
+
+      } );
+      
+    $(document).ready(function(){
+        $('input.timepicker').timepicker({
+            dropdown: false;
+        });
+    });
+  </script>
+</head>
+    
+<body>
+    
+<div class="navbar">
+    
+    <a href="{{ url_for('index') }}">
+    
+    <div><i class="material-icons">arrow_back</i></div>
+    
+    </a>
+    
+    <div class="header">
+    
+        <p>Add Event</p>
+        
+    </div>
+    
+</div>
+
+    <div class="container">
+        
+
+        <form method="post" action="/action" enctype="multipart/form-data">
+          Event title:<br>
+          <input type="text" name="title" required><br>
+          Date:<br>
+          <input type="text" name="date" required id="datepicker"><br>
+          Location:<br>
+          <input type="text" name="location" required><br>
+          Start time:<br>
+          <input type="text" name="start_time" required class="timepicker"><br>
+          End time:<br>
+          <input type="text" name="end_time" required class="timepicker"><br>
+          First name:<br>
+          <input type="text" name="first_name" required><br>
+          Last name:<br>
+          <input type="text" name="last_name" required><br>
+          How many people can fit?:<br>
+          <input type="text" name="attendees" required><br>
+          Event description:<br>
+          <textarea type="text" name="description" required></textarea><br>
+          Upload an image:<br>
+          <input type="file" name="image" required>
+
+          <p>
+            <input type="submit" value="Post">
+          </p>
+          
+            </div>
+
+        </form>
+    
+</body>
+
+</html>

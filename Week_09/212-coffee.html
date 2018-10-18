@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        
+        <style>
+            html, body {
+                align-items: center;
+                background-color: #888;
+                display: flex;
+                height: 100%;
+                justify-content: center;
+            }
+            
+            svg {
+                outline: 1px dashed #666;
+            }
+            
+            svg * {
+                stroke: #000;
+                stroke-width: 15;
+            }
+            
+            #portafilter, #startbutton {
+                cursor: pointer;
+            }
+        
+        
+        </style>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+
+    
+    </head>
+    
+    <body>
+        
+        <svg width="800" height="400">
+            
+            <rect x="260" y="100" width="280" height="200" fill="maroon"/>
+            
+            <linearGradient id="steel">
+                <stop offset="0%" style="stop-color:#666;"></stop>
+                <stop offset="50%" style="stop-color:#FFF;"></stop>
+                <stop offset="65%" style="stop-color:#888;"></stop>
+                <stop offset="100%" style="stop-color:#FFF;"></stop>
+            </linearGradient>
+            
+            <rect x='250' y="20" rx="5" ry="2" width="300" height="80" fill="url(#steel)"/>
+            
+            <rect x='250' y="300" rx="5" ry="2" width="300" height="45" fill="url(#steel)"/>
+            
+            <ellipse id="startbutton" cx="290" cy="60" rx="15" ry="15" fill="red"></ellipse>
+            
+            <rect x="350" y="100" rx="5" ry="5" width="100" height="45" fill="url(#steel)"/>
+            
+            <path  fill="#0EE" 
+                   fill-opacity="0.4"
+                   d="
+                     M335 220
+                     L465 220
+                     C465 220, 465 300, 400 300
+                     C335 300, 335 220, 335 220
+                     Z
+                     
+                    "
+            />
+            
+            <g id="portafilter">
+                <line x1="50" y1="145" x2="200" y2="145" stroke-linecap="round"/>
+                <polygon 
+                         stroke-linejoin="round"
+                         fill="url(#steel)"
+                         points="
+                                 120,145
+                                 130,190
+                                 190,190
+                                 200,145
+                                 "
+                />
+            </g>
+
+            
+            <defs>
+                <clipPath id="cupmask">
+                    <rect id="cuplevel" x="325" y="300" width="150" height="60" style="stroke:none;" fill="#F00"/>
+                
+                </clipPath>
+            
+            </defs>
+            
+            <path  fill="#421" 
+                  clip-path="url(#cupmask)"
+                   d="
+                     M335 220
+                     L465 220
+                     C465 220, 465 300, 400 300
+                     C335 300, 335 220, 335 220
+                     Z
+                     
+                    "
+            />
+        
+        </svg>
+        
+        <script>
+        
+            document.getElementById('portafilter').addEventListener('click', function() {
+                TweenMax.to('#portafilter',.300, {x:240, onComplete:activateButton});
+            })
+            
+            var sb = document.getElementById('startbutton')
+            
+            
+            function deactivateButton() {
+                sb.setAttribute('fill', '#F00')
+            }
+        
+            function activateButton() {
+                sb.setAttribute('fill', '#0F0')
+                
+                sb.addEventListener('click', function() {
+                TweenMax.to('#cuplevel', 2, {y:-60, onComplete:deactivateButton});
+            })
+            }
+        
+        </script>
+    
+    
+    </body>
+    
+</html>
